@@ -1,96 +1,25 @@
-#JavaScript Applications: Teamwork Assignment
-*****************************************
+## Laravel PHP Framework
 
-This document describes the teamwork assignment for Telerik Academy students in "JavaScript Applications" course
+[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-#Project Description
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
 
-Design and implement an **object-oriented web application** by choice.
+Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
 
-It could be a simple game , component library , business application or any other
-*   You are absolutely free to choose the topic of your work
-*   Sample applications:
-    *   Snake
-    *   Chess
-    *   Backgammon
-    *   Minesweeper
-    *   Tetris
-    *   Xonix
-    *   Supermario
-    *   Components library(windows, buttons, text boxes, menus, etc.)
-    *   Book store
-    *   Auction
-    *   Movie rental
-    *   Bug tracker
-    *   Knowledge management system
-    *   E-library
-    *   Text editor
+Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-##General Requirements
-Please define and implement the following assets in your project:
-*   Use [jQuery](https://jquery.com/)
-*   Implement OOP design
-    *   Application logic using objects, modules and data hiding
-        *   Both Prototypal and classical inheritances are Ok
-    *   At least 3 modules
-    *   At least 7 types of objects
-*   Unit tests
-    *   Using [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/) and [SinonJS](http://sinonjs.org/)
-*   Implement a UI for your application 
-    *   Use KendoUI, jQueryUI or implement your own UI logic
-*   Use some kind of web data storage, one of the following is Ok
-    *   Your backend with Node.js, PHP, ASP.NET, Django, Ruby on Rails, Spring, etc...
-    *   Telerik Backend Services
-    *   Parse
-    *   Microsoft Mobile App Services
-*   Use some kind of local storage, one of the following is Ok:
-    *   `localStorage`
-    *   `sessionStorage`
-*   Use [Twitter Bootstrap](http://getbootstrap.com/)
-    *   Research and use Bootstrap for your application
-    *   Make the application responsive for different screens and resolutions
-*   At least one third-party API to share something from your application
-    *   Samples:
-        *   Share status to Facebook, Google+, Twitter, etc...
-        *   Upload images to Facebook, Flickr, Instagram             
-*   **The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, Internet Explorer 10/11, Opera and Apple Safari**
+## Official Documentation
 
-##Additional Requirements
-Follow the best practices for producing high-quality code: 
-*   **Correct naming**
-*   **Data encapsulation**
-    *   Use OOP and modules
-*   **Strong cohesion** and **loose coupling**
-*   Use **GIT** as a source control system
-*   Host it on [http://github.com](http://github.com)
+Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
 
-##Optional Requirements    
-If you have a chance, time and a suitable situation, you might add some of the following to your project:
-*   Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
-*   Integration tests
-*   Usage of a structural JavaScript framework:
-    *   AngularJS, KendoUI, Knockout.js, Backbone.js, etc...
+### Contributing To Laravel
 
-##Non-required Work
-*   Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
-    *   This team work project is for educational purpose
-    *   Its main purpose it to experience using graphics, DOM manipulation and OOP in a real-world-like project and to get some experience in team working and team collaboration with a source control system.
-*   Implementation of server-side logic with ASP.NET, PHP, Java or Node.js
+**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
 
-##Deliverables
+### License
 
-*   Register your application at [Telerik Academy Showcase System](http://best.telerikacademy.com)
-    *   Provide a link for the github repository of your application
-    *   Host your application on a server, and provide a link
-        *   You can host your application on http://appharbor.com, http://heroku.com or just use the http://rawgit.com
-
-##Public Project Defense
-Each team will have to deliver a public defense of its work to the other students and trainers. You will have only 10 minutes for the following:
-*   Demonstrate the application (very shortly)
-*   Show the source code
-*   Show the commits logs to confirm that team member have contributed.
-*   Optionally you might prepare a presentation (3-4 slides)
-Please be **strict in timing!** Be well prepared for presenting maximum of your work for minimum time. Bring your own laptop. Test it preliminary with the multimedia projector. Open the project assets beforehand to save time. You have 10 minutes, no more
-
-##Give Feedback about Your Teammates
-You will be invited to provide feedback about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is important part of the project evaluation so take it seriously and be honest
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
