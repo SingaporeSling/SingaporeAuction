@@ -48,6 +48,9 @@
 		127.0.0.1       localhost
 		127.0.0.1       singapore-sling.dev
 
+		IMPORTANT: WINDOWS MAY NOT ALLOW YOU TO CHANGE THIS FILE - TO BE SURE THAT IT IS INDEED CHANGED - COPY IT TO THE DESKTOP, THEN CHANGE IT AND REPLACE THE OLD FILE WITH THE FIXED ONE!
+		IF YOU CANNOT OPEN THE PROJECT - OPEN THE CONSOLE IN YOU BROWSER - IF THERE IS ERR_ICANN_NAME_COLLISION - THEN YOU SHOULD RETURN AND FIX THIS FILE AGAIN!
+
 4. Ready to go
 	- if you followed the steps carefully, then you're ready to load the project.
 	- pull all the files from the repo and place them in the singapore-sling folder. 
@@ -134,7 +137,7 @@
 
 					 saveUser(), register(), ets.
 
-		- Finally, there are the view. 
+		- Finally, there are the views. 
 
 			- In the route.php we put the way we make the request, the url to which the request leads and the method it uses
 
