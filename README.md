@@ -14,6 +14,21 @@
 		- save the file and load localhost/singapore-sling
 		- now you should see 1 in your browser
 		- delete index.php
+	1.5. Enter wamp/bin/apache/apache2.4.9/conf/htttpd.conf and remove the # frpm the beginig pf line 513
+	1.6. Enter the extra folder and add:
+
+								<directory "C:/wamp/www/singapore-sling/public">
+					   Options Indexes FollowSymLinks SymLinksIfOwnerMatch
+					   AllowOverride All
+					   Order Allow,Deny
+					   Allow from All
+					 </directory>
+					 
+					<VirtualHost *:80>
+					  ServerAdmin webmaster@localhost
+					  DocumentRoot "C:/wamp/www/singapore-sling/public" 
+					  ServerName singapore-sling.dev
+						</VirtualHost>
 
 2. Download Composer - https://getcomposer.org/download/ - don't be frightened - just use Windows Installer.
 	- at some point the installer will ask you about php.exe
