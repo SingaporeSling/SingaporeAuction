@@ -13,31 +13,42 @@
    <label for="description">Description</label>
    <textarea name="description" id="description"></textarea>
    <div class="error description"></div>
+
+   <label for="selection-menu">Select categories</label>
+   <select name="categories[]" id="selection-menu" multiple="true">
+     @foreach($categories as $category)
+     <option value="{{$category->id}}">{{$category->name}}</option>
+     @endforeach
+   </select>
    
    <input type="submit" value="Add" />
    <div class="error login"></div>
 </form>
 
-<form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
+{{-- image form --}}
 
-<fieldset>
-<legend>HTML File Upload</legend>
+<form id="upload" action="{{ action('ProductsController@saveProductImage') }}" method="POST" enctype="multipart/form-data">
+  <fieldset>
+    <legend>HTML File Upload</legend>
 
-<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+    <div>
+        <label for="fileselect">Files to upload:</label>
+        <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+        <div id="filedrag">or drop files here</div>
+    </div>
 
-<div>
- <label for="fileselect">Files to upload:</label>
- <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
- <div id="filedrag">or drop files here</div>
-</div>
+    <div id="submitbutton">
+       <button type="submit">Upload Files</button>
+    </div>
 
-<div id="submitbutton">
- <button type="submit">Upload Files</button>
-</div>
-
-</fieldset>
-
+  </fieldset>
 </form>
+
+<div id="messages">
+    <p>Status Messages</p>
+</div>
+
+{{-- end image form --}}
 
 <div id="messages"></div>
 

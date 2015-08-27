@@ -9,12 +9,14 @@ class ProductsController extends \BaseController {
 	 */
 	public function createProduct()
 	{
-		return View::make('products/create-product');
+		$categories = Category::all();
+		return View::make('products/create-product', array('categories' => $categories));
 	}
 
 	public function allProducts()
 	{
-		return View::make('products/all-products');
+		$products = Product::all();
+		return View::make('products/all-products', array('products' => $products));
 	}
 
 	public function saveProduct()
@@ -34,6 +36,25 @@ class ProductsController extends \BaseController {
 				$product->description = $data['description'];
 				$product->start_price = $data['start_price'];
 				$product->save();
+
+				if(isset($data['categories']) && !empty($data['categories']))
+				{
+					$product->categories()->attach($data['categories']);
+				}
+
+				if (Session::has('files'))
+				{
+					$files = Session::get('files'); // get session files
+					foreach ($files as $key => $file)
+					{
+						$directory_file = public_path() . '/product_images/' . $file;
+
+						if (File::exists( $directory_file ))
+							File::move($directory_file, public_path() . '/product_images/product_' . $product->id . '_' . $key . '.jpg');
+					}
+
+					Session::forget('files');
+				}
 
 				return Response::json(array(
 					'success' => true,
@@ -55,21 +76,47 @@ class ProductsController extends \BaseController {
 		));
 	}
 
+	/*
+	 * save product image on server directory
+	 * keep name in session, save it on product creation
+	*/
 	public function saveProductImage()
 	{
-		$file = $_SERVER['HTTP_X_FILENAME'];
-		dd($file);
-		 $data = $_FILES;
-		 $second_data = $_POST;
-		 var_dump($data);
-		var_dump($second_data);
-		die;
-		$file = Input::file('file');
-		dd($file);
-		$file->move(public_path() . '/product_images');
+		if (!Auth::guest())
+		{
+			$file = Input::file('file');
+			$directory = public_path() . '/product_images/';
+			$file_name = $file->getClientOriginalName();
+
+			if (!File::exists( $directory . $file_name ))
+				$file->move($directory, $file_name);
+
+			if (!Session::has('files')) 
+				Session::put('files', []);
+
+			Session::push('files', $file_name);
+
+			return Response::json(array(
+				'success' => true
+			));
+		}
 
 		return Response::json(array(
-			'success' => true
-			));
+			'success' => false
+		));
+	}
+
+	public function viewProduct($id)
+	{
+		$product = Product::find($id);
+		$files = File::glob(public_path() . '/product_images/product_'.$product->id.'*.jpg', GLOB_MARK);
+		$imagesNames = array();
+
+		foreach($files as $file)
+		{
+			$imageFile = explode('product_images/', $file);
+			$imageNames[] = $imageFile[1];
+		}
+		return View::make('products/view-product', array('product'=>$product, 'files'=>$imageNames));
 	}
 }
