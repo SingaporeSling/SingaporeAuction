@@ -13,13 +13,6 @@
    <label for="description">Description</label>
    <textarea name="description" id="description"></textarea>
    <div class="error description"></div>
-
-   <label for="selection-menu">Select categories</label>
-   <select name="categories[]" id="selection-menu" multiple="true">
-     @foreach($categories as $category)
-     <option value="{{$category->id}}">{{$category->name}}</option>
-     @endforeach
-   </select>
    
    <input type="submit" value="Add" />
    <div class="error login"></div>
