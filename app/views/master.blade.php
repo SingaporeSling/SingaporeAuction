@@ -50,7 +50,6 @@
   </div>
 </nav>
 	<div id="content-change">
-	<h1>gf</h1>
 		@yield('main')
 		{{ HTML::script('js/jquery-2.1.4.min.js') }}
 		{{ HTML::script('js/bootstrap.min.js') }}
@@ -58,6 +57,38 @@
 		
 		@yield('scripts')
 		</div>
-		
+<div id="footer" class="panel-footer"><!--footer-->
+  <div>
+      	<div class="row">
+          <ul class="list-unstyled">
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">About</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Services</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Studies</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">References</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Login</a>
+            </li>
+           <li class="col-sm-4 col-xs-6">
+              <a href="#">Press</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Contact</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Impressum</a>
+            </li>
+          </ul>
+		</div><!--/row-->
+
+  </div><!--/container-->
+</div><!--/footer-->
 	</body>
 </html>

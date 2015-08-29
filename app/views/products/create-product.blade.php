@@ -1,35 +1,48 @@
 @extends('master')
 
 @section('main')
-<form id="create_product_form" action="/create-product" method="post">
-   <label for="product_name">Product name</label>
-   <input type="text" name="product_name" id="product_name" />
+<form class="form-horizontal" id="create_product_form" action="/create-product" method="post">
+<div class="form-group">
+   <label for="product_name" class="col-lg-2 control-label">Product name</label>
+   <input class="form-control" type="text" name="product_name" id="product_name" />
    <div class="error product_name"></div>
-
-   <label for="start_price">Start price</label>
-   <input type="text" name="start_price" id="start_price" />
+</div>
+<div class="form-group">
+   <label for="start_price" class="col-lg-2 control-label">Start price</label>
+   <input class="form-control" type="text" name="start_price" id="start_price" />
    <div class="error start_price"></div>
-
-   <label for="description">Description</label>
-   <textarea name="description" id="description"></textarea>
+</div>
+<div class="form-group">
+   <label for="description" class="col-lg-2 control-label">Description</label>
+   <div class="col-lg-10">
+   <textarea class="form-control" name="description" id="description"></textarea>
    <div class="error description"></div>
+   </div>
+</div>
+<div class="form-group">
 
-   <label for="selection-menu">Select categories</label>
-   <select name="categories[]" id="selection-menu" multiple="true">
+   <label for="selection-menu" class="col-lg-2 control-label">Select categories</label>
+   <div class="col-lg-10">
+   <select name="categories[]" class="form-control" id="selection-menu" multiple="true">
      @foreach($categories as $category)
      <option value="{{$category->id}}">{{$category->name}}</option>
      @endforeach
    </select>
-   
-   <input type="submit" value="Add" />
+   </div>
+   </div>
+   <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+   <input class="btn btn-primary" type="submit" value="Add" />
    <div class="error login"></div>
+   </div>
+   </div>
 </form>
 
 {{-- image form --}}
 
-<form id="upload" action="{{ action('ProductsController@saveProductImage') }}" method="POST" enctype="multipart/form-data">
+<form class="form-horizontal" id="upload" action="{{ action('ProductsController@saveProductImage') }}" method="POST" enctype="multipart/form-data">
   <fieldset>
-    <legend>HTML File Upload</legend>
+    <legend>* You can also add a photo to your product *</legend>
 
     <div>
         <label for="fileselect">Files to upload:</label>
@@ -38,7 +51,7 @@
     </div>
 
     <div id="submitbutton">
-       <button type="submit">Upload Files</button>
+       <button type="submit" class="btn btn-primary">Upload Files</button>
     </div>
 
   </fieldset>
@@ -55,27 +68,7 @@
 
 <!--TODO move the style -->
   <style type="text/css">
-   label{display: block;}
-   #filedrag
-{
- display: none;
- font-weight: bold;
- text-align: center;
- padding: 1em 0;
- margin: 1em 0;
- color: #555;
- border: 2px dashed #555;
- border-radius: 7px;
- cursor: default;
-}
-
-#filedrag.hover
-{
- color: #f00;
- border-color: #f00;
- border-style: solid;
- box-shadow: inset 0 3px 4px #888;
-}
+   
   </style>
 @stop
 
