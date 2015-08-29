@@ -1,6 +1,3 @@
-@extends('master')
-
-@section('main')
 <form id="login_form" action="/" method="post">
    <label for="email">Email</label>
    <input type="text" name="email" id="email" />
@@ -17,4 +14,3 @@
   <style type="text/css">
    label{display: block;}
   </style>
-@stop

@@ -143,7 +143,7 @@
 
 				for example, Route:: get('register', 'UsersController@register')
 
-					- the conсtruction Route::get() means that we are using a class and a stattic method :
+					- the contrsoction Route::get() means that we are using a class and a stattic method :
 
 						Class::staticMethod()
 
@@ -155,6 +155,9 @@
 
 
 Basically, that's it! If you have any questions - you can reach me anytime:
+
+skype: ronivel
+phone: 0888 13 00 49
 
 Good luck!
 

@@ -14,6 +14,7 @@ class UsersController extends \BaseController {
 
 	public function login()
 	{
+		//$html = 
 		return View::make('users/login');
 	}
 

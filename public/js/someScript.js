@@ -11,7 +11,19 @@ $(document).ready(function(){
 			}
 		});
 	});
-
+	
+	//$('#addOrLogIn').on('click', function(ev) {
+	//	event.preventDefault();
+	//	window.location = '/login';
+	//})
+	$('#add-or-login').on('click', function(ev) {
+	var neshto = $.get(base_url + '/login', {}, function(data){
+			
+	    window.location.hash = 'login';
+		$('#content-change').empty().append(data);
+		});
+	});
+	
 	$('#login_form').on('submit', function(ev){
 		ev.preventDefault();
 		$.post(base_url + '/login-user', $(this).serialize(), function(data){
