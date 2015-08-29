@@ -14,21 +14,6 @@
 		- save the file and load localhost/singapore-sling
 		- now you should see 1 in your browser
 		- delete index.php
-	1.5. Enter wamp/bin/apache/apache2.4.9/conf/htttpd.conf and remove the # frpm the beginig pf line 513
-	1.6. Enter the extra folder and add:
-
-								<directory "C:/wamp/www/singapore-sling/public">
-					   Options Indexes FollowSymLinks SymLinksIfOwnerMatch
-					   AllowOverride All
-					   Order Allow,Deny
-					   Allow from All
-					 </directory>
-					 
-					<VirtualHost *:80>
-					  ServerAdmin webmaster@localhost
-					  DocumentRoot "C:/wamp/www/singapore-sling/public" 
-					  ServerName singapore-sling.dev
-						</VirtualHost>
 
 2. Download Composer - https://getcomposer.org/download/ - don't be frightened - just use Windows Installer.
 	- at some point the installer will ask you about php.exe
@@ -47,9 +32,6 @@
 
 		127.0.0.1       localhost
 		127.0.0.1       singapore-sling.dev
-
-		IMPORTANT: WINDOWS MAY NOT ALLOW YOU TO CHANGE THIS FILE - TO BE SURE THAT IT IS INDEED CHANGED - COPY IT TO THE DESKTOP, THEN CHANGE IT AND REPLACE THE OLD FILE WITH THE FIXED ONE!
-		IF YOU CANNOT OPEN THE PROJECT - OPEN THE CONSOLE IN YOU BROWSER - IF THERE IS ERR_ICANN_NAME_COLLISION - THEN YOU SHOULD RETURN AND FIX THIS FILE AGAIN!
 
 4. Ready to go
 	- if you followed the steps carefully, then you're ready to load the project.
@@ -137,13 +119,13 @@
 
 					 saveUser(), register(), ets.
 
-		- Finally, there are the views. 
+		- Finally, there are the view. 
 
 			- In the route.php we put the way we make the request, the url to which the request leads and the method it uses
 
 				for example, Route:: get('register', 'UsersController@register')
 
-					- the conсtruction Route::get() means that we are using a class and a stattic method :
+					- the contrsoction Route::get() means that we are using a class and a stattic method :
 
 						Class::staticMethod()
 
@@ -155,6 +137,9 @@
 
 
 Basically, that's it! If you have any questions - you can reach me anytime:
+
+skype: ronivel
+phone: 0888 13 00 49
 
 Good luck!
 

@@ -58,8 +58,9 @@ function FileSelectHandler(e) {
   // process all File objects
   for (var i = 0, f; f = files[i]; i++) {
     ParseFile(f);
-    UploadFile(f);
   }
+
+  UploadFile(files, 0);
 
 }
 
@@ -78,15 +79,25 @@ function ParseFile(file) {
   
 }
 
-function UploadFile(file) {
+function UploadFile(files, key) {
 
-  var xhr = new XMLHttpRequest();
-  if (xhr.upload) {
+  if (typeof files[key] !== 'undefined') {
+    
+    var xhr = new XMLHttpRequest();
+    if (xhr.upload) {
 
-      xhr.open("POST", $id("upload").action, true);
-      var formData = new FormData();
-      formData.append('file',file);
-      xhr.send(formData);
+        xhr.open("POST", $id("upload").action, true);
+        var formData = new FormData();
+        formData.append('file',files[key]);
+        xhr.send(formData);
+
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState==4 && xhr.status==200) {
+            UploadFile(files, key + 1);
+          }
+        }
+    }
+
   }
 
 }

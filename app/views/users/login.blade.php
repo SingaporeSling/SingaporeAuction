@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('main')
-<form id="login_form" action="/" method="post">
+<form id="login_form" action="/login-user" method="post">
    <label for="email">Email</label>
    <input type="text" name="email" id="email" />
 

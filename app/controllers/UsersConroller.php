@@ -88,4 +88,21 @@ class UsersController extends \BaseController {
 
 		return View::make('users/confirm');
 	}
+
+	public function logout()
+	{
+		if(Auth::check())
+		{
+				Auth::logout();
+
+				return Response::json(array(
+					'success' => true,
+					));
+		}
+
+		return Response::json(array(
+					'success' => false,
+					'error' => 'In order to logout, you should first log in!'
+					));
+	}
 }

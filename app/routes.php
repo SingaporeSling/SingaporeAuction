@@ -22,3 +22,4 @@ Route::get('all-products', 'ProductsController@allProducts');
 Route::post('save-product', 'ProductsController@saveProduct');
 Route::post('save-product-image', 'ProductsController@saveProductImage');
 Route::get('view-product/{id}', 'ProductsController@viewProduct');
+Route::post('logout', 'UsersController@logout');
