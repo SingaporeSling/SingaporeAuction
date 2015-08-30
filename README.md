@@ -143,6 +143,14 @@ phone: 0888 13 00 49
 
 Good luck!
 
+P.S. Open the cmd - write: 
+
+		php artisan migrate
+
+		y
+
+		php artisan db:seed
+
 
 
 
