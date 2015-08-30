@@ -31,4 +31,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public function getSexAttribute($value)
+	{
+		$sex = 'female';
+		if ($value == 0) $sex = 'male';
+		return $sex;
+	}
+
 }

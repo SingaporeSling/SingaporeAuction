@@ -37,7 +37,12 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
+        @if(!Auth::check())
 	  <li id="add-or-login"><a href="#">Login</a></li>
+        @else
+        <li id="logout"><a href="#">Logout</a></li>
+        @endif
+
 	  </ul>
       <ul class="nav navbar-nav navbar-right">
          <form class="navbar-form navbar-left" role="search">

@@ -48,18 +48,37 @@ $(document).ready(function(){
 		});
 	});
 
-	 $('body').on('submit', '#logout-form', function(ev){
+	 $('body').on('click', '#logout', function(ev){
 		ev.preventDefault();
 		$.post(base_url + '/logout', function(data){
-			if(data.success){
-				window.location.href = base_url + '/login';
-			} else {
-				$('.error.logout-fail').text(data.error);
-			}
+		window.location.reload();
 		});
 	});
 
+	 $('body').on('submit', '#profile_form', function(ev){
+	 	ev.preventDefault();
+	 	$.post(base_url + '/set-profile/' + $('#user_id').val() , $(this).serialize(), function(data){
+	 		if(data.success){
+	 			$('.sex').text(data.user.sex);
+	 			$('.about-me').text(data.user.about_me);
+	 		}
+	 	});
+	 });
+
+	 $('body').on('submit', '#bid_form', function(ev){
+	 	ev.preventDefault();
+	 	$.post(base_url + '/save-bid', $(this).serialize(), function(data){
+	 		if(data.success){
+	 			window.location.href = base_url + '/all-products';
+	 			$('#successful_bid').text('Thank you for your bid! You can now continue your journey through our Auction!');
+	 		} else {
+	 			$('.error.bid').text(data.error);
+	 		}
+	 	});
+	 });
+
 });
+
 
 function showErrors(errors){
 	$.each(errors, function(key, value){

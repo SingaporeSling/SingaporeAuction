@@ -1,6 +1,12 @@
 @extends('master')
 
 @section('main')
+  <div id="successful_bid">
+  @if(Session::has('message'))
+  {{Session::get('message')}}
+  <?php Session::forget('message') ?>
+  @endif
+  </div>
   <ul>
   @foreach($products as $product)
   <li>{{$product->product_name}}</li>
