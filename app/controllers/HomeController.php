@@ -17,7 +17,18 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		 return View::make('home');
+		if(Auth::check())
+		{
+			$user = Auth::user();
+		}
+		else{
+			$user = new User();
+			$user->first_name = 'stranger';
+		}
+
+		return View::make('home', array(
+			'user' => $user
+			));
 	}
 
 }

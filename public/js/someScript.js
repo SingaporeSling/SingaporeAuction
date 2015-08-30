@@ -24,7 +24,9 @@ $(document).ready(function(){
 		$.post(base_url + '/login-user', $(this).serialize(), function(data){
 			
 			if(data.success){
+				$('#greeting').text("Hello, " + "! Welcome to the Auction!");
 				window.location.href = base_url;
+				
 			} else{
 				$('.error').text(data.error);
 			}
@@ -42,6 +44,17 @@ $(document).ready(function(){
 				} else{
 					$('.error.login').text(data.error);
 				}
+			}
+		});
+	});
+
+	 $('body').on('submit', '#logout-form', function(ev){
+		ev.preventDefault();
+		$.post(base_url + '/logout', function(data){
+			if(data.success){
+				window.location.href = base_url + '/login';
+			} else {
+				$('.error.logout-fail').text(data.error);
 			}
 		});
 	});

@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration {
     		$table->string('remember_token');
     		$table->string('confirmation_token');
     		$table->boolean('is_confirmed');
+
+
 		});
 	}
 
