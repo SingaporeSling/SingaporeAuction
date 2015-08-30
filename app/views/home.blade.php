@@ -49,11 +49,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  
-@stop
-@extends('master')
-
-@section('main')
+ 
 <div id="root">
   <h1>Welcome!</h1>
 
