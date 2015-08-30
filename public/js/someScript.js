@@ -19,7 +19,7 @@ $(document).ready(function(){
 		});
 	});
 	
-	$('#login_form').on('submit', function(ev){
+	$('body').on('submit', '#login_form', function(ev){
 		ev.preventDefault();
 		$.post(base_url + '/login-user', $(this).serialize(), function(data){
 			
