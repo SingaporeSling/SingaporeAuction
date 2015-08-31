@@ -61,6 +61,21 @@ $(document).ready(function(){
 
 });
 
+ var slide = kendo.fx($("#slide-in-share")).slideIn("left"),
+        visible = true;
+
+    $("#slide-in-handle").click(function(e) {
+        if (visible) {
+            slide.reverse();
+        } else {
+            slide.play();
+        }
+        visible = !visible;
+        e.preventDefault();
+    });
+
+
+
 function showErrors(errors){
 	$.each(errors, function(key, value){
         $('.error.'+ key).text(value);
