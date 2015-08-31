@@ -9,13 +9,12 @@
         <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
+	  
         <div class="item">
           <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+			
             </div>
           </div>
         </div>
@@ -49,9 +48,29 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+ <div id="feature-products-list">
+     <h1>Feature Products</h1>
+     @foreach($products as $product)
  
+  <ul class="display-items-list">
+  <li id="headline">{{$product->product_name}}</li>
+  @if (File::exists(public_path() . '/product_images/product_'.$product->id.'_0.jpg'))
+  <li><img width="150" src="{{asset('product_images/product_'.$product->id.'_0.jpg')}}" /></li>
+  @endif
+  <li>{{$product->description}}</li>
+  <li>{{$product->start_price}}</li>
+  <li><a href="{{action('ProductsController@viewProduct', $product->id)}}">Bid</a></li>
+  </ul>
+  @endforeach
+ </div>
 <div id="root">
+
   <h1>Welcome!</h1>
+
+  <form id="logout-form" action="/logout" method="post">
+  <input type="submit" value="logout" id="logout" />
+  </form>
+  <div class="error logout-fail"></div>
   
   <span id="greeting">Hello, {{$user->first_name}}</span>
   </div>

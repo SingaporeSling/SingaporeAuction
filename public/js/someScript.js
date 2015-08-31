@@ -49,7 +49,11 @@ $(document).ready(function(){
 	$('body').on('click', '#logout', function(ev){
 		ev.preventDefault();
 		$.post(base_url + '/logout', function(data){
-			window.location.reload();
+			if(data.success){
+				window.location.href = base_url + '/login';
+			} else {
+				$('.error.logout-fail').text(data.error);
+			}
 		});
 	});
 
@@ -63,6 +67,8 @@ $(document).ready(function(){
 		});
 	});
 
+ var slide = kendo.fx($("#slide-in-share")).slideIn("left"),
+        visible = true;
 	$('body').on('submit', '#bid_form', function(ev){
 		ev.preventDefault();
 		$.post(base_url + '/save-bid', $(this).serialize(), function(data){
@@ -75,7 +81,16 @@ $(document).ready(function(){
 		});
 	});
 
-});
+    $("#slide-in-handle").click(function(e) {
+        if (visible) {
+            slide.reverse();
+        } else {
+            slide.play();
+        }
+        visible = !visible;
+        e.preventDefault();
+    });
+
 
 
 function showErrors(errors){

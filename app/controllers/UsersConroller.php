@@ -94,54 +94,15 @@ class UsersController extends \BaseController {
 		if(Auth::check())
 		{
 				Auth::logout();
-		}
-	}
 
-	public function setProfile($id)
-	{
-		$data = Input::all();
-		$user = User::find($id);
-		$currentUser = Auth::user();
-
-		if(!empty($user) && !empty($currentUser) && $currentUser->id == $user->id)
-		{
-			$user->about_me = $data['about_me'];
-			$user->sex = $data['sex'];
-			$user->save();
-
-			return Response::json(array(
-				'success' => true,
-				'user' => $user
-				));
+				return Response::json(array(
+					'success' => true,
+					));
 		}
 
 		return Response::json(array(
-				'success' => false,
-				'error' => 'No such user found!'
-				));
-	}
-
-	public function profile($id)
-	{
-		$user = User::find($id);
-
-		if(!empty($user))
-		{
-			return View::make('users/profile', array('user' => $user));
-		}
-
-		return Redirect::action('HomeController@index');
-	}
-
-	public function createProfileImage($id)
-	{
-		$user = User::find($id);
-		$currentUser = Auth::user();
-
-		if(!empty($user) && !empty($currentUser) && $currentUser->id == $user->id)
-		{
-			$file = Input::file('file');
-			$file->move(public_path() . '/profile_images/', public_path() . '/profile_images/profile_' . $user->id . '.jpg');
-		}	
+					'success' => false,
+					'error' => 'In order to logout, you should first log in!'
+					));
 	}
 }
