@@ -38,13 +38,9 @@
    </div>
 </form>
 
-	<div id="example">
-    <div id="slide-in-content">
-        <div id="slide-in-share">
-            <a id="slide-in-handle" href="#">Share</a>
-            {{-- image form --}}
+{{-- image form --}}
 
-<form id="upload" action="{{ action('ProductsController@saveProductImage') }}" method="POST" enctype="multipart/form-data">
+<form class="form-horizontal" id="upload" action="{{ action('ProductsController@saveProductImage') }}" method="POST" enctype="multipart/form-data">
   <fieldset>
     <legend>* You can also add a photo to your product *</legend>
 
@@ -53,16 +49,13 @@
         <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
         <div id="filedrag">or drop files here</div>
     </div>
+
     <div id="submitbutton">
        <button type="submit" class="btn btn-primary">Upload Files</button>
     </div>
 
   </fieldset>
 </form>
-
-        </div>
-    </div>
-</div>
 
 <div id="messages">
     <p>Status Messages</p>
@@ -73,10 +66,12 @@
 <div id="messages"></div>
 
 
+<!--TODO move the style -->
+  <style type="text/css">
+   
+  </style>
 @stop
 
 @section('scripts')
 {{ HTML::script('js/image-upload.js') }}
-{{ HTML::script('js/kendo.all.min.js') }}
-{{ HTML::script('js/someScript.js') }}
 @stop

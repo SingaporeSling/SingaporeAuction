@@ -14,4 +14,9 @@ class Product extends \Eloquent {
 	{
 		return $this->belongsToMany('Category', 'product_categories', 'product_id', 'category_id');
 	}
+
+	public function users()
+	{
+		return $this->belongsToMany('User', 'biddings', 'product_id', 'user_id')->withPivot('bid');
+	}
 }

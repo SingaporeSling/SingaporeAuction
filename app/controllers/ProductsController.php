@@ -18,7 +18,7 @@ class ProductsController extends \BaseController {
 		$products = Product::all();
 		return View::make('products/all-products', array('products' => $products));
 	}
-	
+
 	public function saveProduct()
 	{
 		$data = Input::all();
@@ -109,7 +109,7 @@ class ProductsController extends \BaseController {
 	public function viewProduct($id)
 	{
 		$product = Product::find($id);
-		$files = File::glob(public_path() . '/product_images/product_'.$product->id.'*.jpg', GLOB_MARK);
+		$files = File::glob(public_path() . '/product_images/product_'.$product->id.'_*.jpg', GLOB_MARK);
 		$imagesNames = array();
 
 		foreach($files as $file)
@@ -117,6 +117,58 @@ class ProductsController extends \BaseController {
 			$imageFile = explode('product_images/', $file);
 			$imageNames[] = $imageFile[1];
 		}
-		return View::make('products/view-product', array('product'=>$product, 'files'=>$imageNames));
+
+		if($product->users()->count() > 0)
+		{
+			$highest_bid = $product->users()->max('bid');
+		}
+		else
+		{
+			$highest_bid = $product->start_price;
+		}
+		return View::make('products/view-product', array('product'=>$product, 'files'=>$imageNames, 'highest_bid' => $highest_bid));
+	}
+
+	public function saveBid()
+	{
+		$data = Input::all();
+		$product = Product::find($data['product_id']);
+
+		if(Auth::check() && !empty($product))
+		{
+			$current_bid = $data['bid'];
+			
+				if($product->users()->count() > 0)
+				{
+					$highest_bid = $product->users()->max('bid');
+				}
+				else
+				{
+					$highest_bid = $product->start_price;
+				}
+
+				
+				if($current_bid > $highest_bid)
+				{ 
+					$product->users()->sync(array(Auth::user()->id => array('bid' => $current_bid)), false);
+
+					Session::put('message', 'Thank you for your bid! You can now continue your journey through our Auction!');
+
+					return Response::json(array(
+						'success' => true,
+						'bid' => $current_bid
+						));
+				}
+
+				return Response::json(array(
+						'success' => false,
+						'error' => 'In order to bid for this product - you should make your bid higher than ' . $highest_bid
+						));
+			}
+
+				return Response::json(array(
+						'success' => false,
+						'error' => 'In order to bid you need to login first.'
+						));
 	}
 }
