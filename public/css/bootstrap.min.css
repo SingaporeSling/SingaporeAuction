@@ -3484,7 +3484,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #325d88;
+    background-color: #9a1919;
     border-color: transparent
 }
 
@@ -7436,9 +7436,9 @@ label{display: block;}
     position: absolute;
     left: 300px;
     width: 31px;
-    height: 69px;
-    background: #1b7458;
-    color: #fff;
+    height: 140px;
+    background-image: url("../img/add-picture-btn.jpg");
+    color: black;
     text-indent: -999em;
 }
 
@@ -7484,7 +7484,7 @@ label{display: block;}
 .share-tumblr:hover { border-color: #2b4865; }
 
 #create_product_form{
-    width: 500px;
+    width: 450px;
     float:left;
     margin-right: 0px;
 }
@@ -7512,12 +7512,18 @@ header{
     margin-bottom: 0px;
     padding-bottom: 10px;
     border: 1px solid black;
+    border-radius: 10px;
+    margin - right : 15px;
 }
 .display-items-list li{
     list-style-type: none;
     text-align: center;
+    width: 48%;
+    float:left;
 }
 .display-items-list #headline{
     font-size: 20px;
     font-weight: bold;
+    width: 100%;
+    margin-bottom: 10px;
 }

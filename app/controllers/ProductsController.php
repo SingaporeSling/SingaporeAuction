@@ -18,7 +18,7 @@ class ProductsController extends \BaseController {
 		$products = Product::all();
 		return View::make('products/all-products', array('products' => $products));
 	}
-
+	
 	public function saveProduct()
 	{
 		$data = Input::all();

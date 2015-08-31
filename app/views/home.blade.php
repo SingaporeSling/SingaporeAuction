@@ -48,7 +48,21 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+ <div id="feature-products-list">
+     <h1>Feature Products</h1>
+     @foreach($products as $product)
  
+  <ul class="display-items-list">
+  <li id="headline">{{$product->product_name}}</li>
+  @if (File::exists(public_path() . '/product_images/product_'.$product->id.'_0.jpg'))
+  <li><img width="150" src="{{asset('product_images/product_'.$product->id.'_0.jpg')}}" /></li>
+  @endif
+  <li>{{$product->description}}</li>
+  <li>{{$product->start_price}}</li>
+  <li><a href="{{action('ProductsController@viewProduct', $product->id)}}">Bid</a></li>
+  </ul>
+  @endforeach
+ </div>
 <div id="root">
 
   <h1>Welcome!</h1>
