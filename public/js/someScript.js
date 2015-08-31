@@ -1,5 +1,85 @@
 $(document).ready(function(){
-	
+
+	function locationHashChanged() {
+		if (location.hash === "#login") {
+			$('#content-change').load(base_url + '/login');
+		}
+		if(location.hash === "#all-products") {
+			$('#content-change').load(base_url + '/products/all-products');
+		}
+
+		if(location.hash.substring[1] === '#profile') {
+			$('#content-change').load(base_url + '/users/profile' + location.hash.substring(location.hash.length - 1)); // this doesn't work, 
+			// TODO inject current user data - I can give the load function a data object to work with the PHP (I think!).
+		}
+
+		if(location.hash.substring[1] === '#view-product') {
+			$('#content-change').load(base_url + '/products/view-product' + location.hash.substring(location.hash.length - 1)); // this doesn't work, 
+			// TODO inject current user data - I can give the load function a data object to work with the PHP (I think!).
+		}
+
+		if (location.hash === '#confirm') {
+			$('#content-change').load(base_url + '/users/confirm'); 
+		};
+		
+		if (location.hash === '#create_product') {
+			$('#content-change').load(base_url + '/products/create_product'); 
+		};
+	}
+
+	window.onhashchange = locationHashChanged;
+
+	$('.view-product').on('click', function(ev) {
+		var productHref = $(this).attr('location'),
+		productId = productHref.substring(productHref.length - 1);
+		window.location.hash = 'view-product/' + productId; // To add logic for figuring out which product this is.
+	})
+
+	$('.view-profile').on('click', function(ev) {
+		var productHref = $(this).attr('location'),
+		productId = productHref.substring(productHref.length - 1);
+		window.location.hash = 'view-product/' + productId; // To add logic for figuring out which product this is.
+	})
+
+	$('#create_product').on('click', function(ev) {
+		
+		window.location.hash = 'create_product';
+	});
+
+	$('#confirm').on('click', function(ev) {
+		
+		window.location.hash = 'confirm';
+	});
+
+	$('#create_product').on('click', function(ev) {
+		
+		window.location.hash = 'create_product';
+	});
+
+	$('#login').on('click', function(ev) {
+		
+		window.location.hash = 'login';
+	});
+
+	$('body').on('click', '#logout', function(ev){
+		ev.preventDefault();
+		$.post(base_url + '/logout', function(data){
+			window.location.reload();
+		});
+	});
+
+	$('#all-products').on('click', function() {
+		window.location.hash = 'all-products';
+	})
+
+	$('#home').on('click', function() {
+		window.location.href = base_url;
+	})
+
+
+
+	// submits
+
 	$('#register_form').on('submit', function(ev){
 		ev.preventDefault();
 		$.post(base_url + '/save-user', $(this).serialize(), function(data){
@@ -11,13 +91,7 @@ $(document).ready(function(){
 			}
 		});
 	});
-	$('#login').on('click', function(ev) {
-		var neshto = $.get(base_url + '/login', {}, function(data){
-			
-			window.location.hash = 'login';
-			$('#content-change').empty().append(data);
-		});
-	});
+
 	
 	$('body').on('submit', '#login_form', function(ev){
 		ev.preventDefault();
@@ -48,12 +122,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$('body').on('click', '#logout', function(ev){
-		ev.preventDefault();
-		$.post(base_url + '/logout', function(data){
-			window.location.reload();
-		});
-	});
+	
 
 	$('body').on('submit', '#profile_form', function(ev){
 		ev.preventDefault();

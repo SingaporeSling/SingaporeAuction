@@ -59,18 +59,13 @@
   @endif
   <li>{{$product->description}}</li>
   <li>{{$product->start_price}}</li>
-  <li><a href="{{action('ProductsController@viewProduct', $product->id)}}">Bid</a></li>
+  <li ><a class="view-product" location="{{action('ProductsController@viewProduct', $product->id)}}">Bid</a></li>
   </ul>
   @endforeach
  </div>
 <div id="root">
 
   <h1>Welcome!</h1>
-
-  <form id="logout-form" action="/logout" method="post">
-  <input type="submit" value="logout" id="logout" />
-  </form>
-  <div class="error logout-fail"></div>
   
   <span id="greeting">Hello, {{$user->first_name}}</span>
   </div>
