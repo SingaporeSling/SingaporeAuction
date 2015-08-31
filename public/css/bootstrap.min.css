@@ -1362,8 +1362,9 @@ body {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #3e3f3a;
-    background-image: url("../img/light_textured_backround.jpg");
+    color: black;
+    background-image: url("../img/red-chrome.jpg");
+    height: 1000px;
 
 }
 
@@ -3341,9 +3342,6 @@ textarea.input-lg, select[multiple].input-lg {
     }
 }
 .form-horizontal{
-    margin-left: 15%;
-    margin-right: 15%;
-    background-color: #81b33a;
     border-radius: 10px;
     padding: 15px;
 }
@@ -3364,7 +3362,7 @@ textarea.input-lg, select[multiple].input-lg {
 
 @media (min-width: 768px) {
     .form-horizontal .control-label {
-        text-align: right;
+        text-align: left;
         margin-bottom: 0;
         padding-top: 13px
     }
@@ -3486,7 +3484,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #325d88;
+    background-color: #9a1919;
     border-color: transparent
 }
 
@@ -5898,7 +5896,9 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
     background-color: #333333;
     border-top: 1px solid #dfd7ca;
     border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px
+    border-bottom-left-radius: 3px;
+    clear: both;
+    width: 100%;
 }
 
 .panel > .list-group, .panel > .panel-collapse > .list-group {
@@ -7410,4 +7410,120 @@ label{display: block;}
     border-color: #f00;
     border-style: solid;
     box-shadow: inset 0 3px 4px #888;
+}
+
+#slide-in-content {
+    width: 400px;
+    height: 358px;
+    margin: 0 auto;
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+
+#slide-in-share {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 300px;
+    margin-left: -300px;
+    border: solid #e9e9e9;
+    border-width: 1px 1px 1px 0;
+    padding-left: 10px;
+}
+
+#slide-in-handle {
+    position: absolute;
+    left: 300px;
+    width: 31px;
+    height: 140px;
+    background-image: url("../img/add-picture-btn.jpg");
+    color: black;
+    text-indent: -999em;
+}
+
+#slide-in-share ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 69px;
+    background: #fff;
+    text-align: center;
+}
+
+#slide-in-share li {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.share-button {
+    background: yellow;
+    border: 4px solid #a6a6a6;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-top: 17px;
+
+    -webkit-border-radius: 21px;
+    -moz-border-radius: 21px;
+    border-radius: 21px;
+    text-indent: -999em;
+    color: #a6a6a6;
+}
+
+.share-button:hover {
+    border-color: #333;
+}
+
+.share-facebook { background-position: 50% -2px; }
+.share-twitter { background-position: 50% -40px; }
+.share-tumblr { background-position: 50% -78px; }
+
+.share-facebook:hover { border-color: #3b5998; }
+.share-twitter:hover { border-color: #00c0f7; }
+.share-tumblr:hover { border-color: #2b4865; }
+
+#create_product_form{
+    width: 55%;
+    float:left;
+    margin-right: 0px;
+}
+#messages{
+    clear: both;
+}
+header{
+    height: 287px;
+    background-image: url("../img/Singapore-city.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+#content-change{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+    border-radius: 10px;
+}
+.display-items-list{
+    width: 50%;
+    background-color: white;
+    float: left;
+    padding: 0;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin - right : 15px;
+}
+.display-items-list li{
+    list-style-type: none;
+    text-align: center;
+    width: 48%;
+    float:left;
+}
+.display-items-list #headline{
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 10px;
 }

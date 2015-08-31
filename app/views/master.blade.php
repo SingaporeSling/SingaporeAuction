@@ -9,6 +9,9 @@
 		
 	</head>
 	<body>
+	<header>
+	
+	</header>
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -37,19 +40,14 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        @if(!Auth::check())
-	  <li id="add-or-login"><a href="#">Login</a></li>
+	  @if(!Auth::check())
+   <li id="login"><a href="#">Login</a></li>
         @else
         <li id="logout"><a href="#">Logout</a></li>
         @endif
-
 	  </ul>
       <ul class="nav navbar-nav navbar-right">
-         <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
+        
       </ul>
     </div>
   </div>
