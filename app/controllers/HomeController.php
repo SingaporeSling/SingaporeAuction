@@ -18,11 +18,13 @@ class HomeController extends BaseController {
 	public function index()
 	{
 		$products = Product::all();
-		if(Auth::check())
+
+		if (Auth::check())
 		{
 			$user = Auth::user();
 		}
-		else{
+		else
+		{
 			$user = new User();
 			$user->first_name = 'stranger';
 		}
@@ -30,7 +32,7 @@ class HomeController extends BaseController {
 		return View::make('home', array(
 			'user' => $user,
 			'products' => $products
-			));
+		));
 	}
 	
 	

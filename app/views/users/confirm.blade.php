@@ -1,15 +1,14 @@
 @extends('master')
 
 @section('main')
-	<h1>You so gay!</h1>
-	
+	<h1>Thank you for your registration!</h1>
 @stop
 
 @section('scripts')
 <script>
 	$(document).ready(function(){
 		setTimeout(function(){
-    		window.location.href = base_url + '/login';
+    		window.location.href = base_url;
 		}, 4000);
 	});
 	</script>

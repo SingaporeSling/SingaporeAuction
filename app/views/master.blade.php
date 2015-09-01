@@ -5,7 +5,8 @@
          var base_url = "{{route('home')}}";
         </script>
 		
-		{{HTML::style('css/bootstrap.min.css')}}
+    {{HTML::style('css/bootstrap.min.css')}}
+		{{HTML::style('styles/custom-styles.css')}}
 		
 	</head>
 	<body>
@@ -21,12 +22,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Singapore Sling</a>
+      <a class="navbar-brand" href="#/">Singapore Sling</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active" id="home"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+      <ul class="nav navbar-nav main-nav">
+        <li class="active"><a href="#/">Home <span class="sr-only">(current)</span></a></li>
         <li id="all-products"><a href="#">All Products</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -40,28 +41,26 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-	  @if(!Auth::check())
-   <li id="login"><a href="#">Login</a></li>
+        @if(!Auth::check())
+          <li id="register"><a href="#/register">Register</a></li>
+          <li id="login"><a href="#/login">Login</a></li>
         @else
-        <li id="logout"><a href="#">Logout</a></li>
+          <li id="logout"><a href="#/logout">Logout</a></li>
         @endif
 	  </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
+    <ul class="nav navbar-nav navbar-right">
+        @if(Auth::check())
+          <li id="user-info"><a href="#">Your Account</a></li>
+        @endif
       </ul>
     </div>
   </div>
 </nav>
 	<div id="content-change">
 		@yield('main')
-		{{ HTML::script('js/jquery-2.1.4.min.js') }}
-		{{ HTML::script('js/bootstrap.min.js') }}
-		{{ HTML::script('js/someScript.js') }}
-		
-		@yield('scripts')
 		</div>
 <div id="footer" class="panel-footer"><!--footer-->
-  <div>
+  <div class="footer-links">
       	<div class="row">
           <ul class="list-unstyled">
             <li class="col-sm-4 col-xs-6">
@@ -93,5 +92,15 @@
 
   </div><!--/container-->
 </div><!--/footer-->
+
+    {{-- scripts should be at the bottom of the page --}}
+    {{ HTML::script('js/jquery-2.1.4.min.js') }}
+    {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/sammy.js') }}
+    {{ HTML::script('js/someScript.js') }}
+    {{ HTML::script('js/routing/routes.js') }}
+    
+    @yield('scripts')
+
 	</body>
 </html>

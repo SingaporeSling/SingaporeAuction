@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="login_form" action="/" method="post">
+<form class="form-horizontal" id="login_form" action="#/login-user" method="post">
   <fieldset>
     <legend>Please Login</legend>
     <div class="form-group">
@@ -19,11 +19,13 @@
 	<div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-		<input type="submit" class="btn btn-primary" value="Submit" />
+      	<input type="submit" class="btn btn-primary" value="Submit" />
+        <p>* Or <a href="#/register">Register</a></p>
       </div>
     </div>
   </fieldset>
 </form>
+
 <!--TODO move the style -->
   <style type="text/css">
    label{display: block;}

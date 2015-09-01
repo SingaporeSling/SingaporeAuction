@@ -1,0 +1,19 @@
+.footer-links .row {
+	margin-right: 0;
+}
+
+.all-products {
+	min-height: 200px;
+}
+
+.all-products li img {
+	height: 130px;
+	width: auto;
+}
+
+.register-form {
+	width: 980px;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 20px 0;
+}

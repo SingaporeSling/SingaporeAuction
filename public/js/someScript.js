@@ -61,13 +61,6 @@ $(document).ready(function(){
 		window.location.hash = 'login';
 	});
 
-	$('body').on('click', '#logout', function(ev){
-		ev.preventDefault();
-		$.post(base_url + '/logout', function(data){
-			window.location.reload();
-		});
-	});
-
 	$('#all-products').on('click', function() {
 		window.location.hash = 'all-products';
 	})
@@ -76,36 +69,7 @@ $(document).ready(function(){
 		window.location.href = base_url;
 	})
 
-
-
 	// submits
-
-	$('#register_form').on('submit', function(ev){
-		ev.preventDefault();
-		$.post(base_url + '/save-user', $(this).serialize(), function(data){
-			if(data.success){
-				$('#register_form')
-				.after('<p>Thanks for registering. Please visit your email to confirm the registration!</p>');
-			} else{
-				showErrors(data.errors);
-			}
-		});
-	});
-
-	
-	$('body').on('submit', '#login_form', function(ev){
-		ev.preventDefault();
-		$.post(base_url + '/login-user', $(this).serialize(), function(data){
-			
-			if(data.success){
-				$('#greeting').text("Hello, " + "! Welcome to the Auction!");
-				window.location.href = base_url;
-				
-			} else{
-				$('.error').text(data.error);
-			}
-		});
-	});
 
 	$('#create_product_form').on('submit', function(ev){
 		ev.preventDefault();
@@ -121,8 +85,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-	
 
 	$('body').on('submit', '#profile_form', function(ev){
 		ev.preventDefault();
@@ -149,7 +111,7 @@ $(document).ready(function(){
 });
 
 
-function showErrors(errors){
+window.showErrors = function(errors){
 	$.each(errors, function(key, value){
 		$('.error.'+ key).text(value);
 	});

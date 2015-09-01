@@ -1,7 +1,4 @@
-@extends('master')
-
-@section('main')
-<form id="register_form" action="/save-user" method="post">
+<form id="register_form" class="register-form" action="#/save-user" method="post">
    <label for="first_name">First Name</label>
    <input type="text" name="first_name" id="first_name" />
    <div class="error first_name"></div>
@@ -23,10 +20,3 @@
 
    <input type="submit" value="Submit" />
 </form>
-
-
-<!--TODO move the style -->
-  <style type="text/css">
-   label{display: block;}
-  </style>
-@stop

@@ -91,10 +91,12 @@ class UsersController extends \BaseController {
 
 	public function logout()
 	{
-		if(Auth::check())
+		if (Auth::check())
 		{
-				Auth::logout();
+			Auth::logout();
 		}
+
+		return Response::json(array('success' => true));
 	}
 
 	public function setProfile($id)
