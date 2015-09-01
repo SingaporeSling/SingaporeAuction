@@ -8,7 +8,7 @@
         </script>
 		
     {{HTML::style('css/bootstrap.min.css')}}
-		{{HTML::style('styles/custom-styles.css')}}
+	{{HTML::style('styles/custom-styles.css')}}
 		
 	</head>
 	<body>
@@ -25,9 +25,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+	    <a class="navbar-brand" href="#">Singapore Sling</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	 <ul class="nav navbar-nav">
+        <li class="active" id="home"><a href="#">Home <span class="sr-only">(current)</span></a></li>
         <li id="all-products"><a href="#">All Products</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -60,64 +63,30 @@
 	
 	<div id="content-change">
 		@yield('main')
-		{{ HTML::script('js/jquery-2.1.4.min.js') }}
-		{{ HTML::script('js/jquery-ui.min.js') }}
-	{{ HTML::script('js/jquery.shapeshift.js') }}
-  
-		{{ HTML::script('js/bootstrap.min.js') }}
-		{{ HTML::script('js/someScript.js') }}
-		
-		@yield('scripts')
+
 		</div>
 <div id="footer" class="panel-footer"><!--footer-->
-  <div class="footer-links">
-      	<div class="row">
-          <ul class="list-unstyled">
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">About</a>
-            </li>
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">Services</a>
-            </li>
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">Studies</a>
-            </li>
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">References</a>
-            </li>
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">Login</a>
-            </li>
-           <li class="col-sm-4 col-xs-6">
-              <a href="#">Press</a>
-            </li>
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">Contact</a>
-            </li>
-            <li class="col-sm-4 col-xs-6">
-              <a href="#">Impressum</a>
-            </li>
-          </ul>
-		</div><!--/row-->
-
-  </div><!--/container-->
+ <div class="container">
+    <div></div>
+    <div></div>
+    <div data-ss-colspan="2">Something</div>
+    <div data-ss-colspan="2"></div>
+    <div data-ss-colspan="3"></div>
+	<div><img src="../../img/icone_facebook.gif" width = "100px"></div>
+	
+  </div>
 </div><!--/footer-->
-<script>
-    $(document).ready(function() {
-      $(".container").shapeshift({
-        minColumns: 3
-      });
-    })
-  </script>
 
-    {{-- scripts should be at the bottom of the page --}}
+  {{-- scripts should be at the bottom of the page --}}
     {{ HTML::script('js/jquery-2.1.4.min.js') }}
+	{{ HTML::script('js/jquery-ui.min.js') }}
+	{{ HTML::script('js/jquery.shapeshift.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/sammy.js') }}
     {{ HTML::script('js/someScript.js') }}
     {{ HTML::script('js/routing/routes.js') }}
     
     @yield('scripts')
-
+	
 	</body>
 </html>

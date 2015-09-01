@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+      $(".container").shapeshift({
+        minColumns: 3
+      });
 	function locationHashChanged() {
 		if (location.hash === "#login") {
 			$('#content-change').load(base_url + '/login');
