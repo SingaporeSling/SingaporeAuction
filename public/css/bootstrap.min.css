@@ -7527,3 +7527,24 @@ header{
     width: 100%;
     margin-bottom: 10px;
 }
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.container > div {
+    background: #AAA;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+}
+.container > div:hover{
+    border: 1px solid black;
+}
+.container > div[data-ss-colspan="2"] { width: 210px; }
+.container > div[data-ss-colspan="3"] { width: 320px; }
+
+.container > .ss-placeholder-child {
+    background: transparent;
+    border: 1px dashed blue;
+}
