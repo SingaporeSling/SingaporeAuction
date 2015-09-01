@@ -80,7 +80,8 @@ var sammyApp = $.sammy(function() {
       });
     });
 
-    // this.get('#/home', function() {
+    // Roni, this is in case the home button stops working for you.
+    // this.get('#/home', function() { 
     //     $.get(base_url, {}, function(data){
     //       $('html').html(data.replace(/<html>(.*)<\/html>/, "$1"));
     //   });
@@ -113,7 +114,7 @@ $(function () {
 
 function clearRegLogin() {
 	$("#reg_login_form").remove();
-	$('#content-change').prepend('<div id="reg_login_form"></div>');
+	$('#content-change').html('<div id="reg_login_form"></div>');
 }
 
 function clearMessages() {
