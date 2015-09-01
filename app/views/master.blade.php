@@ -15,6 +15,7 @@
 	<header>
 	
 	</header>
+	<div id="fb-root"></div>
 	<nav class="navbar navbar-default">
 	
   <div class="container-fluid">
@@ -72,7 +73,8 @@
     <div data-ss-colspan="2">Something</div>
     <div data-ss-colspan="2"></div>
     <div data-ss-colspan="3"></div>
-	<div><img src="../../img/icone_facebook.gif" width = "100px"></div>
+	<div class="fb-like" data-href="https://www.facebook.com/SingaporeAuction" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	<div class="fb-share-button" data-href="http://singapore-sling.dev/" data-layout="button_count"></div>
 	
   </div>
 </div><!--/footer-->
@@ -85,6 +87,7 @@
     {{ HTML::script('js/sammy.js') }}
     {{ HTML::script('js/someScript.js') }}
     {{ HTML::script('js/routing/routes.js') }}
+	{{ HTML::script('js/facebook-plugins.js') }}
     
     @yield('scripts')
 	
