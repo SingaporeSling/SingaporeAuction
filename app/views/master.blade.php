@@ -1,6 +1,8 @@
 <html>
 	<head>
 	
+    <!-- Javascript -->
+  
 	<script type="text/javascript">
          var base_url = "{{route('home')}}";
         </script>
@@ -13,6 +15,7 @@
 	
 	</header>
 	<nav class="navbar navbar-default">
+	
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -40,6 +43,7 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
+		<li id="regiser"><a href="#">Register</a></li>
 	  @if(!Auth::check())
    <li id="login"><a href="#">Login</a></li>
         @else
@@ -47,14 +51,23 @@
         @endif
 	  </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+	  @if(!Auth::check())
+        @else
+         <li id="user-info"><a href="#">Your Account</a></li>
+        @endif
+       
       </ul>
     </div>
   </div>
 </nav>
+	
+	
 	<div id="content-change">
 		@yield('main')
 		{{ HTML::script('js/jquery-2.1.4.min.js') }}
+		{{ HTML::script('js/jquery-ui.min.js') }}
+	{{ HTML::script('js/jquery.shapeshift.js') }}
+  
 		{{ HTML::script('js/bootstrap.min.js') }}
 		{{ HTML::script('js/someScript.js') }}
 		
@@ -93,5 +106,12 @@
 
   </div><!--/container-->
 </div><!--/footer-->
+<script>
+    $(document).ready(function() {
+      $(".container").shapeshift({
+        minColumns: 3
+      });
+    })
+  </script>
 	</body>
 </html>
