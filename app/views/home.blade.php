@@ -13,7 +13,7 @@
   @endif
   <li>{{$product->description}}</li>
   <li>{{$product->start_price}}</li>
-  <li ><a class="view-product" href="{{action('ProductsController@viewProduct', $product->id)}}">Bid</a></li>
+  <li ><a href="#/view-product/{{$product->id}}">Bid</a></li>
   </ul>
   @endforeach
  </div>

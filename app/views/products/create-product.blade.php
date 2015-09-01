@@ -1,6 +1,3 @@
-@extends('master')
-
-@section('main')
 <form class="form-horizontal" id="create_product_form" action="/create-product" method="post">
 <div class="form-group">
    <label for="product_name" class="col-lg-2 control-label">Product name</label>
@@ -71,9 +68,6 @@
 {{-- end image form --}}
 
 <div id="messages"></div>
-
-
-@stop
 
 @section('scripts')
 {{ HTML::script('js/image-upload.js') }}

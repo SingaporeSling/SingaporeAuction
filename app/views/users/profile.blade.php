@@ -1,6 +1,3 @@
-@extends('master')
-
-@section('main')
 @if(Auth::check() && Auth::user()->id == $user->id)
 <form id="profile_form" action="/set-profile" method="post">
    <label for="sex">Select your gender:</label>
@@ -81,7 +78,6 @@
   <style type="text/css">
    label{display: block;}
   </style>
-@stop
 
 @section('scripts')
 {{HTML::script('js/image-upload.js')}}

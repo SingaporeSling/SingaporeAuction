@@ -29,9 +29,9 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	 <ul class="nav navbar-nav">
-        <li class="active" id="home"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li id="all-products"><a href="#">All Products</a></li>
+	 <ul class="nav navbar-nav" id="main-nav">
+        <li class="active" id="home"><a href="#/home">Home <span class="sr-only">(current)</span></a></li>
+        <li id="all-products"><a href="#/all-products">All Products</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -53,7 +53,7 @@
 	  </ul>
     <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
-          <li id="user-info"><a href="#">Your Account</a></li>
+          <li id="user-info"><a href="#/profile/{{$user->id}}">Your Account</a></li>
         @endif
       </ul>
     </div>

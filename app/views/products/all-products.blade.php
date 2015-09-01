@@ -1,6 +1,4 @@
-@extends('master')
 
-@section('main')
  <div id="feature-products-list">
   @foreach($products as $product)
  
@@ -11,9 +9,7 @@
   @if (File::exists(public_path() . '/product_images/product_'.$product->id.'_0.jpg'))
   <li><img width="200" src="{{asset('product_images/product_'.$product->id.'_0.jpg')}}" /></li>
   @endif
-  <li><a href="{{action('ProductsController@viewProduct', $product->id)}}">Bid</a></li>
+  <li><a class="view-product" href="#/view-product{{$product->id}}">Bid</a></li>
   </ul>
   @endforeach
   </div>
-  
-@stop
