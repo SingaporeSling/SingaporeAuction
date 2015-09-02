@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	 <ul class="nav navbar-nav" id="main-nav">
         <li class="active" id="home"><a href="#/home">Home <span class="sr-only">(current)</span></a></li>
-        <li id="all-products"><a href="#/all-products">All Products</a></li>
+        <li id="all-products"><a href="#/all-products">Our Products</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -46,7 +46,6 @@
           </ul>
         </li>
         @if(!Auth::check())
-          <li id="register"><a href="#/register">Register</a></li>
           <li id="login"><a href="#/login">Login</a></li>
         @else
           <li id="logout"><a href="#/logout">Logout</a></li>
