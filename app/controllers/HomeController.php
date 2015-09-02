@@ -17,7 +17,6 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		$products = Product::all();
 		$categories = Category::all();
 
 		if (Auth::check())
@@ -30,13 +29,30 @@ class HomeController extends BaseController {
 			$user->first_name = 'stranger';
 		}
 
-		return View::make('home', array(
-			'user' => $user,
-			'products' => $products,
-			'categories' => $categories
+		return View::make('main', array(
+			'categories' => $categories,
+			'user' => $user
 		));
 	}
-	
-	
+
+	public function getHome()
+	{
+		$products = Product::all();
+
+		if (Auth::check())
+		{
+			$user = Auth::user();
+		}
+		else
+		{
+			$user = new User();
+			$user->first_name = 'stranger';
+		}
+
+		return View::make('home', array(
+			'products' => $products,
+			'user' => $user,
+		));
+	}
 
 }

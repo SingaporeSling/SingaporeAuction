@@ -79,14 +79,14 @@ class UsersController extends \BaseController {
 	{
 		$user = User::find($id);
 
- 		if (empty($user) || $user->confirmation_token != $token){
- 			return Redirect::route('home');
+ 		if (empty($user) || $user->confirmation_token != $token) {
+ 			return Response::json(['success' => false]);
  		}
  		
  		$user->is_confirmed = 1;
 		$user->save();
 
-		return View::make('users/confirm');
+		return Response::json(['success' => true]);
 	}
 
 	public function logout()

@@ -68,9 +68,14 @@
 // 		window.location.hash = 'all-products';
 // 	})
 
-// 	$('#home').on('click', function() {
-// 		window.location.href = base_url;
-// 	})
+
+ 	/* $('body').on('click', "/home", function() {
+   		$.get(base_url + '/home', function(){
+   			window.location.href = base_url;
+   		});
+ });
+
+*/
 
 // 	// submits
 

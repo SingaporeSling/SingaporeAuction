@@ -11,10 +11,11 @@
 |
 */
 
+Route::get('/', array('uses' => 'HomeController@index', 'as' => 'home'));
+
 Route::get('register', 'UsersController@register');
 Route::post('save-user', 'UsersController@saveUser');
 Route::get('login', 'UsersController@login');
-Route::get('/', array('uses' => 'HomeController@index', 'as' => 'home'));
 Route::post('login-user', 'UsersController@loginUser');
 Route::get('confirm/{user_id}/{token}', 'UsersController@confirmRegistration');
 Route::get('create-product', 'ProductsController@createProduct');
@@ -27,3 +28,6 @@ Route::post('set-profile/{id}', 'UsersController@setProfile');
 Route::get('profile/{id}', 'UsersController@profile');
 Route::post('create-profile-image/{id}', 'UsersController@createProfileImage');
 Route::post('save-bid', 'ProductsController@saveBid');
+
+Route::get('get-home', 'HomeController@getHome');
+Route::get('category/{id}', 'CategoriesController@singleCategory');

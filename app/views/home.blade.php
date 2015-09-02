@@ -1,7 +1,4 @@
-@extends('master')
-
-@section('main')
-<div>
+<div id="home_content">
 <div id="feature-products-list">
      <h1>Feature Products</h1>
      @foreach($products as $product)
@@ -24,4 +21,3 @@
   <span id="greeting">Hello, {{$user->first_name}}</span>
   </div>
 </div>
-@stop

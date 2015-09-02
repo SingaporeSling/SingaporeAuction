@@ -8,5 +8,5 @@
 	
 	<body>
 		<h1>Confirm registration</h1>
-		<p>Confirm your registration from <a href="<?= action('UsersController@confirmRegistration', array($user->id, $user->confirmation_token)) ?>">here</a></p>
+		<p>Confirm your registration from <a href="<?= action('HomeController@index') ?>/#/confirm/<?= $user->id ?>/<?= $user->confirmation_token ?>">here</a></p>
 	</body>
