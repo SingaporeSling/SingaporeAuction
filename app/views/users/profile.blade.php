@@ -1,29 +1,54 @@
 @if(Auth::check() && Auth::user()->id == $user->id)
-<form id="profile_form" action="/set-profile" method="post">
-   <label for="sex">Select your gender:</label>
-   <input type="radio" name="sex" value="0" /> Male
-   <input type="radio" name="sex" value="1" /> Female
-
-   <input type="hidden" name="user_id" value="{{$user->id}}" id="user_id" />
-   <textarea name="about_me" id="about_me"></textarea>
-
-   <input type="submit" value="Submit" />
+<form id="profile_form" class="form-horizontal" action="/set-profile" method="post">
+  <fieldset>
+    <legend>Change your account settings</legend>
+		<div class="form-group">
+			<label for="sex" class="col-lg-2 control-label">Select your gender:</label>
+			<div class="col-lg-10">
+					<div class="radio">
+						<label>
+							<input type="radio" name="sex" id="optionsRadios1" value="0" checked="">
+							Male
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="sex" id="optionsRadios2" value="1">
+							Female
+						</label>
+					</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="about_me" class="col-lg-2 control-label">About me</label>
+			<div class="col-lg-10">
+				<input type="hidden" name="user_id" value="{{$user->id}}" id="user_id" />
+				<textarea name="about_me" class="form-control" id="about_me"></textarea>
+		    </div>
+    </div>
+	<div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+      	<input type="submit" class="btn btn-primary" value="Submit" />
+      </div>
+    </div>
+  </fieldset>
 </form>
 
-<form id="upload" action="{{ action('UsersController@createProfileImage', $user->id) }}" method="POST" enctype="multipart/form-data">
+<form id="upload" class="form-horizontal" action="{{ action('UsersController@createProfileImage', $user->id) }}" method="POST" enctype="multipart/form-data">
   <fieldset>
     <legend>HTML File Upload</legend>
- 
-    <div>
-        <label for="fileselect">Files to upload:</label>
-        <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
-        <div id="filedrag">or drop files here</div>
-    </div>
- 
-    <div id="submitbutton">
-       <button type="submit">Upload Files</button>
-    </div>
- 
+		<div class="form-group">
+			<label class="col-lg-2 control-label" for="fileselect">Files to upload:</label>
+			<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+			<div id="filedrag">or drop files here</div>
+		</div>
+		<div class="form-group">
+			<div class="col-lg-10 col-lg-offset-2">
+				<button type="reset" class="btn btn-default">Cancel</button>
+				<button type="submit" class="btn btn-primary" id="submitbutton">Upload Files</button>
+			</div>
+		</div> 
   </fieldset>
 </form>
  
