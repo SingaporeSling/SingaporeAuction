@@ -40,6 +40,7 @@
 			      @endforeach
           </ul>
         </li>
+        <li id="create-product"><a href="#/create-product">Create Product</a></li>
         @if(!Auth::check())
           <li id="register"><a href="#/register">Register</a></li>
           <li id="login"><a href="#/login">Login</a></li>
@@ -84,8 +85,16 @@
     {{ HTML::script('js/sammy.js') }}
     {{ HTML::script('js/someScript.js') }}
     {{ HTML::script('js/routing/routes.js') }}
- 	  {{ HTML::script('js/facebook-plugins.js') }}
+    {{ HTML::script('js/facebook-plugins.js') }}
     @yield('scripts')
+
+    <script>
+      $(document).ready(function() {
+        $(".container").shapeshift({
+          minColumns: 3
+        });
+      })
+    </script>
 	
 	</body>
 </html>

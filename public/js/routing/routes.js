@@ -114,10 +114,39 @@ var sammyApp = Sammy('#content', function() {
 
     });
 
-    this.get('#/create-product', function() { // TODO add a button for this one, Magi :D
-        $.get(base_url + '/create-product', {}, function(data){
-          $('#content-change').html(data);
+    this.get('#/profile/:id', function(){
+      $.get(base_url + '/profile/' + this.params['id'], {}, function(data){
+        $('#content-change').html(data);
+      });
+    });
 
+    this.post('#/set-profile/:id', function(){
+      $.post(base_url + '/set-profile/' + this.params['id'], $('#profile_form').serialize(), function(data){
+       if(data.success){
+         $('.sex').text(data.user.sex);
+         $('.about-me').text(data.user.about_me);
+         clearForm();
+       }
+     });
+    });
+
+    this.get('#/create-product', function() { // TODO add a button for this one, Magi :D
+      $.get(base_url + '/create-product', {}, function(data){
+        $('#content-change').html(data);
+      });
+    });
+
+    this.post('#/save-product', function(){
+      $.post(base_url + '/save-product', $('#create_product_form').serialize(), function(data) {
+       if(data.success){
+         goUrl('all-products');
+       } else{
+         if(data.type == 'form_error'){
+           showErrors(data.errors);
+         } else{
+           $('.error.login').text(data.error);
+         }
+       }
       });
     });
 
@@ -128,9 +157,23 @@ var sammyApp = Sammy('#content', function() {
     });
 
     this.get('#/view-product/:id', function() {
-
         $.get(base_url + '/view-product/' +  this.params['id'], {}, function(data){ 
           $('#content-change').html(data);
+      });
+    });
+
+    this.post('#/save-bid', function(){
+
+      clearMessages();
+
+      $.post(base_url + '/save-bid', $('#bid_form').serialize(), function(data){
+        if(data.success){
+          $("#bid").val('');
+          $('.highest-bid').text("Highest bid price is " + data.bid);
+          $('#successful_bid').text('Thank you for your bid! You can now continue your journey through our Auction!');
+        } else {
+          $('.error.bid').text(data.error);
+        }
       });
     });
 });
@@ -145,7 +188,7 @@ function clearRegLogin() {
 }
 
 function clearMessages() {
-	$('.thank-you-msg, .errors, .error').empty();
+	$('.thank-you-msg, .errors, .error, #successful_bid').empty();
 }
 
 function removeLoginButtons() {

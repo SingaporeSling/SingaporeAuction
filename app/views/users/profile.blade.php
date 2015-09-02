@@ -1,5 +1,5 @@
 @if(Auth::check() && Auth::user()->id == $user->id)
-<form id="profile_form" class="form-horizontal" action="/set-profile" method="post">
+<form id="profile_form" class="form-horizontal" action="/#/set-profile/{{ $user->id }}" method="post">
   <fieldset>
     <legend>Change your account settings</legend>
 		<div class="form-group">
@@ -52,9 +52,7 @@
   </fieldset>
 </form>
  
-<div id="messages">
-    <p>Status Messages</p>
-</div>
+<div id="messages"></div>
  
 {{-- end image form --}}
  
@@ -88,12 +86,13 @@
 @endif
 
   <div class="profile-holder">
-    <p class="first-name">{{$user->first_name}}</p>
-    <p class="last-name">{{$user->last_name}}</p>
-    <p class="sex">{{$user->sex}}</p>
-    <p class="about-me">{{$user->about_me}}</p>
+    <p class="first-name">First name: {{$user->first_name}}</p>
+    <p class="last-name">Last name: {{$user->last_name}}</p>
+    <p class="sex">Sex: {{$user->sex}}</p>
+    <p class="about-me">About me: {{$user->about_me}}</p>
+    <p>Profile image:</p>
     @if (File::exists(public_path() . '/profile_images/profile_'.$user->id.'.jpg'))
-  <img width="200" src="{{asset('profile_images/profile_'.$user->id.'.jpg')}}" />
+  <img class="profile-image" width="200" src="{{asset('profile_images/profile_'.$user->id.'.jpg')}}?{{rand()}}" />
   @endif
     
   </div>
@@ -104,6 +103,4 @@
    label{display: block;}
   </style>
 
-@section('scripts')
 {{HTML::script('js/image-upload.js')}}
-@stop

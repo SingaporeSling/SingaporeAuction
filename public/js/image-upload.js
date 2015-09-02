@@ -71,7 +71,7 @@ function ParseFile(file) {
         reader.onload = function(e) {
             Output(
                 "<p><strong>" + file.name + ":</strong><br />" +
-                '<img src="' + e.target.result + '" /></p>'
+                '<img width="300" src="' + e.target.result + '" /></p>'
             );
         }
         reader.readAsDataURL(file);
@@ -93,6 +93,7 @@ function UploadFile(files, key) {
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState==4 && xhr.status==200) {
+                    $('.profile-image').attr('src', $('.profile-image').attr('src') + '?' + Math.random());
                     UploadFile(files, key + 1);
                 }
             }

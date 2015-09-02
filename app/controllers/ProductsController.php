@@ -112,6 +112,8 @@ class ProductsController extends \BaseController {
 		$files = File::glob(public_path() . '/product_images/product_'.$product->id.'_*.jpg', GLOB_MARK);
 		$imagesNames = array();
 
+		$imageNames = [];
+
 		foreach($files as $file)
 		{
 			$imageFile = explode('product_images/', $file);

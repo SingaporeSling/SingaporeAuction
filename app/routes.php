@@ -24,8 +24,8 @@ Route::post('save-product', 'ProductsController@saveProduct');
 Route::post('save-product-image', 'ProductsController@saveProductImage');
 Route::get('view-product/{id}', 'ProductsController@viewProduct');
 Route::get('logout', 'UsersController@logout');
-Route::post('set-profile/{id}', 'UsersController@setProfile');
 Route::get('profile/{id}', 'UsersController@profile');
+Route::post('set-profile/{id}', 'UsersController@setProfile');
 Route::post('create-profile-image/{id}', 'UsersController@createProfileImage');
 Route::post('save-bid', 'ProductsController@saveBid');
 

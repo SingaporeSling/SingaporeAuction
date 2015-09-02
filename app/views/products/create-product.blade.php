@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="create_product_form" action="/create-product" method="post">
+<form class="form-horizontal" id="create_product_form" action="/#/save-product" method="post">
 <div class="form-group">
    <label for="product_name" class="col-lg-2 control-label">Product name</label>
    <input class="form-control" type="text" name="product_name" id="product_name" />
@@ -38,7 +38,7 @@
 	<div id="example">
     <div id="slide-in-content">
         <div id="slide-in-share">
-            <a id="slide-in-handle" href="#">Share</a>
+            <a id="slide-in-handle" href="javascript:;">Share</a>
             {{-- image form --}}
 
 <form id="upload" action="{{ action('ProductsController@saveProductImage') }}" method="POST" enctype="multipart/form-data">
@@ -61,16 +61,6 @@
     </div>
 </div>
 
-<div id="messages">
-    <p>Status Messages</p>
-</div>
-
-{{-- end image form --}}
-
 <div id="messages"></div>
 
-@section('scripts')
 {{ HTML::script('js/image-upload.js') }}
-{{ HTML::script('js/kendo.all.min.js') }}
-{{ HTML::script('js/someScript.js') }}
-@stop

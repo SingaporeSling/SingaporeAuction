@@ -10,7 +10,7 @@
 				<h4><a href="#">{{$product->product_name}}</a>
 				</h4>
 				<p>{{$product->description}}</p>
-				<p><a class="view-product" href="#/view-product{{$product->id}}">Bid</a></p>
+				<p><a class="view-product" href="#/view-product/{{$product->id}}">Bid</a></p>
 			</div>
         </div>
     </div>
