@@ -18,6 +18,7 @@ class HomeController extends BaseController {
 	public function index()
 	{
 		$products = Product::all();
+		$categories = Category::all();
 
 		if (Auth::check())
 		{
@@ -31,7 +32,8 @@ class HomeController extends BaseController {
 
 		return View::make('home', array(
 			'user' => $user,
-			'products' => $products
+			'products' => $products,
+			'categories' => $categories
 		));
 	}
 	
