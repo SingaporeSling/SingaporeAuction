@@ -12,7 +12,7 @@ var validator = (function() {
 			PASSWORD_MIN: 7,
 			DESCRIPTION_MIN: 20,
 			MIN_BID_INCREMENT: 1.1
-		}
+		}};
 
 		function validateName(name) {
 			var isString = typeof name === 'string',
@@ -39,7 +39,7 @@ var validator = (function() {
 				return true;
 			} else {
 				return false;
-			};
+			}
 		}
 
 		function validateDescription(description) {
@@ -47,7 +47,7 @@ var validator = (function() {
 			var isLongEnough = description.length >= CONSTS.DIGITS.DESCRIPTION_MIN;
 			if (validateName(description)) {
 				return true;
-			};
+			}
 		}
 
 		function validateBid(bidValue, oldValue) {
