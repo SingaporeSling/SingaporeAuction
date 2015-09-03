@@ -7,6 +7,6 @@ class Category extends \Eloquent {
 
 	public function products()
 	{
-		return $this->belongsToMany("Product", 'product_categories', 'category_id', 'product_id');
+		return $this->belongsToMany("Product", 'product_categories', 'category_id', 'product_id')->whereClosed(0);
 	}
 }

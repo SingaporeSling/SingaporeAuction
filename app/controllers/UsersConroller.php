@@ -32,6 +32,7 @@ class UsersController extends \BaseController {
 			$user->password = Hash::make($data['password']);
 			$user->confirmation_token = md5(uniqid(mt_rand(), true));
 			$user->is_confirmed = 0;
+			$user->is_admin = 0;
 			$user->save();
 
 			Mail::send('emails.confirm-registration', array('user' => $user), function($message) use ($user)

@@ -31,3 +31,5 @@ Route::post('save-bid', 'ProductsController@saveBid');
 
 Route::get('get-home', 'HomeController@getHome');
 Route::get('category/{id}', 'CategoriesController@singleCategory');
+Route::get("close-products", "ProductsController@closeProducts");
+Route::post("close-product/{id}", "ProductsController@closeProduct");

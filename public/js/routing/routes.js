@@ -39,6 +39,10 @@ var sammyApp = Sammy('#content', function() {
           removeLoginButtons();
           $("#greeting").text("Hello, "+ data.user.first_name +"! Welcome to the Auction!");
           $('#main-nav').append('<li id="logout"><a href="#/logout">Logout</a></li>');
+          $('.nav.navbar-nav.navbar-right').append('<li id="user-info"><a href="#/profile/'+ data.user.id +'">Your Account</a></li>');
+
+          if (data.user.is_admin == 1)
+            $('.nav.navbar-nav.navbar-right').prepend('<li id="user-info"><a href="#/close-products">Close Products</a></li>');
 
           goHome();
 
@@ -58,6 +62,7 @@ var sammyApp = Sammy('#content', function() {
         removeLoginButtons();
         $('#main-nav').append('<li id="register"><a href="#/register">Register</a></li>');
         $('#main-nav').append('<li id="login"><a href="#/login">Login</a></li>');
+        $('#user-info, #close-products').remove();
 
         goHome();
       });
@@ -157,8 +162,8 @@ var sammyApp = Sammy('#content', function() {
     });
 
     this.get('#/view-product/:id', function() {
-        $.get(base_url + '/view-product/' +  this.params['id'], {}, function(data){ 
-          $('#content-change').html(data);
+      $.get(base_url + '/view-product/' +  this.params['id'], {}, function(data){ 
+        $('#content-change').html(data);
       });
     });
 
@@ -174,6 +179,24 @@ var sammyApp = Sammy('#content', function() {
         } else {
           $('.error.bid').text(data.error);
         }
+      });
+    });
+
+    this.get('#/close-products', function(){
+      $.get(base_url + '/close-products', function(html) {
+        $('#content-change').html(html);
+      });
+    });
+
+    this.get('#/close-product/:id', function(){
+      var productId = this.params['id'];
+
+      $.post(base_url + '/close-product/' + productId, function(data) {
+        
+        if (data.success) {
+          $('.col-sm-4[data-id="'+ productId +'"]').remove();
+        }
+
       });
     });
 });

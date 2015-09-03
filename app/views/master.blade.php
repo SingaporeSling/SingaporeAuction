@@ -50,6 +50,9 @@
 	  </ul>
     <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
+          @if (Auth::user()->is_admin == 1)
+            <li id="close-products"><a href="#/close-products">Close products</a></li>
+          @endif
           <li id="user-info"><a href="#/profile/{{$user->id}}">Your Account</a></li>
         @endif
       </ul>

@@ -15,7 +15,7 @@ class ProductsController extends \BaseController {
 
 	public function allProducts()
 	{
-		$products = Product::all();
+		$products = Product::whereClosed(0)->get();
 		return View::make('products/all-products', array('products' => $products));
 	}
 
@@ -172,5 +172,26 @@ class ProductsController extends \BaseController {
 						'success' => false,
 						'error' => 'In order to bid you need to login first.'
 						));
+	}
+
+	public function closeProducts()
+	{
+		$products = Product::whereClosed(0)->get();
+		return View::make("products/close-product", ['products' => $products]);
+	}
+
+	public function closeProduct($id)
+	{
+		$product = Product::find($id);
+
+		if (!empty($product))
+		{
+			$product->closed = 1;
+			$product->save();
+
+			return Response::json(['success' => true]);
+		}
+
+		return Response::json(['success' => false]);
 	}
 }

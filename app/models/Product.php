@@ -19,4 +19,18 @@ class Product extends \Eloquent {
 	{
 		return $this->belongsToMany('User', 'biddings', 'product_id', 'user_id')->withPivot('bid');
 	}
+
+	public function getHighestBid()
+	{
+		if($this->users()->count() > 0)
+		{
+			$highest_bid = $this->users()->max('bid');
+		}
+		else
+		{
+			$highest_bid = $this->start_price;
+		}
+
+		return $highest_bid;
+	}
 }
