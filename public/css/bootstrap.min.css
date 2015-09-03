@@ -1591,7 +1591,10 @@ a.text-success:hover, a.text-success:focus {
 }
 
 .text-info {
-    color: #29abe0
+    color: #29abe0;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 18px;
 }
 
 a.text-info:hover, a.text-info:focus {
@@ -7525,6 +7528,7 @@ header{
 #content-change{
     margin-left: 15%;
     margin-right: 15%;
+    padding: 20px;
     background-color: white;
     border-radius: 10px;
 }
