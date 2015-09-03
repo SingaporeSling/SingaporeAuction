@@ -82,8 +82,9 @@
 
     {{-- scripts should be at the bottom of the page --}}
     {{ HTML::script('js/jquery-2.1.4.min.js') }}
-	  {{ HTML::script('js/jquery-ui.min.js') }}
-	  {{ HTML::script('js/jquery.shapeshift.js') }}
+	{{ HTML::script('js/jquery-ui.min.js') }}
+	{{ HTML::script('js/jquery.shapeshift.js') }}
+    {{ HTML::script('js/kendo.all.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/sammy.js') }}
     {{ HTML::script('js/someScript.js') }}
