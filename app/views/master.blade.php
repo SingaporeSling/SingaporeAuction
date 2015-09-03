@@ -2,14 +2,16 @@
 	<head>
 	
     <!-- Javascript -->
-  
+  <style type="text/css">
+#defaultCountdown { width: 300px; height: 45px; }
+</style>
 	<script type="text/javascript">
          var base_url = "{{route('home')}}";
         </script>
 		
     {{HTML::style('css/bootstrap.min.css')}}
 	{{HTML::style('styles/custom-styles.css')}}
-		
+    {{HTML::style('css/jquery.countdown.css')}}
 	</head>
 	<body>
 	<header>
@@ -90,6 +92,7 @@
     {{ HTML::script('js/someScript.js') }}
     {{ HTML::script('js/routing/routes.js') }}
     {{ HTML::script('js/facebook-plugins.js') }}
+	{{ HTML::script('js/jquery.countdown.js') }}
     @yield('scripts')
 
     <script>
