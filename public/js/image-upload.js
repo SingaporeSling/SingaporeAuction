@@ -70,8 +70,8 @@ function ParseFile(file) {
         var reader = new FileReader();
         reader.onload = function(e) {
             Output(
-                "<p><strong>" + file.name + ":</strong><br />" +
-                '<img width="300" src="' + e.target.result + '" /></p>'
+                '<p class="image-upload"><strong>' + file.name + ":</strong><br />" +
+                '<img width="200" src="' + e.target.result + '" /></p>'
             );
         }
         reader.readAsDataURL(file);

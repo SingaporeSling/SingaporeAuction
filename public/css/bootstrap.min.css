@@ -7585,3 +7585,13 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
+.image-upload{
+    float: left;
+    width: 30%;
+    background-color: white;
+}
+#messages{
+    width: 100%;
+    background-color: white;
+    height: 400px;
+}
