@@ -128,8 +128,8 @@ var sammyApp = Sammy('#content', function() {
     this.post('#/set-profile/:id', function(){
       $.post(base_url + '/set-profile/' + this.params['id'], $('#profile_form').serialize(), function(data){
        if(data.success){
-         $('.sex').text(data.user.sex);
-         $('.about-me').text(data.user.about_me);
+         $('.sex').text("Sex: " + data.user.sex);
+         $('.about-me').text("About me: " + data.user.about_me);
          clearForm();
        }
      });

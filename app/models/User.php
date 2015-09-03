@@ -17,8 +17,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 	public $timestamps = false;
 	public static $rules = array(
-		'first_name' => 'required',
-		'last_name' => 'required',
+		'first_name' => 'required|alpha',
+		'last_name' => 'required|alpha',
 		'email' => 'required|email|unique:users',
 		'password' =>  array('required', 'confirmed', 'regex:/\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*/'),
      	'password_confirmation' => 'required',

@@ -90,8 +90,8 @@
   <h4>Your account details:</h4>
     <p  class="text-info">First name: {{$user->first_name}}</p>
     <p  class="text-info">Last name: {{$user->last_name}}</p>
-    <p  class="text-info">Sex: {{$user->sex}}</p>
-    <p  class="text-info">About me: {{$user->about_me}}</p>
+    <p  class="text-info sex">Sex: {{$user->sex}}</p>
+    <p  class="text-info about-me">About me: {{$user->about_me}}</p>
     <p  class="text-info">Profile image:</p>
     @if (File::exists(public_path() . '/profile_images/profile_'.$user->id.'.jpg'))
   <img class="profile-image" width="200" src="{{asset('profile_images/profile_'.$user->id.'.jpg')}}?{{rand()}}" />

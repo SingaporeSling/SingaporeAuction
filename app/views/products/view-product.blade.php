@@ -7,7 +7,7 @@
 				@endif
 			@endforeach 
 		<div class="caption">
-			<h4 class="pull-right">Start price: {{$product->start_price}}.00$</h4>
+			<h4 class="pull-right">Start price: ${{$product->start_price}}</h4>
 			
 			<h4>{{$product->product_name}}</h4>
 			

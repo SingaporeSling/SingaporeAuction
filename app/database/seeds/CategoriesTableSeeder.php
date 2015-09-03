@@ -9,22 +9,22 @@ class CategoriesTableSeeder extends Seeder {
 	{
 		DB::table('categories')->delete();
 		Category::create(array(
-			'name' => 'test',
+			'name' => 'Pets',
 			));
 		Category::create(array(
-			'name' => 'other',
+			'name' => 'Cosmetics',
 			));
 		Category::create(array(
-			'name' => 'test2',
+			'name' => 'Clothes and shoes',
 			));
 		Category::create(array(
-			'name' => 'test3',
+			'name' => 'Large & small appliance',
 			));
 		Category::create(array(
-			'name' => 'test4',
+			'name' => 'IT and communications',
 			));
 		Category::create(array(
-			'name' => 'test5',
+			'name' => 'TV and Audio',
 			));
 	}
 

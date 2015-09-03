@@ -5,8 +5,8 @@ class Product extends \Eloquent {
 	public $timestamps = false;
 	protected $table = "products";
 	public static $rules = array(
-		'product_name' => 'required',
-		'description' => 'required',
+		'product_name' => 'required|alpha_spaces',
+		'description' => 'required|alpha_spaces',
      	'start_price' => 'required|numeric',
 	);
 

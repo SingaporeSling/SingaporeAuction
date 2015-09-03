@@ -37,7 +37,7 @@ class UsersController extends \BaseController {
 
 			Mail::send('emails.confirm-registration', array('user' => $user), function($message) use ($user)
         	{
-            	$message->from('baba@yaga.com', 'Vn');
+            	$message->from('auction@singapore-sling.com', 'Singapore Auction');
             	$message->to($user->email)->subject('Activate your account');
         	});
 

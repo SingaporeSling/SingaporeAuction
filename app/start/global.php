@@ -77,5 +77,5 @@ App::down(function()
 | definitions instead of putting them all in the main routes file.
 |
 */
-
+require app_path().'/validators.php';
 require app_path().'/filters.php';
