@@ -1,19 +1,24 @@
 <div id="home_content">
 <div id="feature-products-list">
      <h1>Feature Products</h1>
-     @foreach($products as $product)
- 
-  <ul class="all-products display-items-list">
-  <li id="headline">{{$product->product_name}}</li>
-  @if (File::exists(public_path() . '/product_images/product_'.$product->id.'_0.jpg'))
-  <li><img width="150" src="{{asset('product_images/product_'.$product->id.'_0.jpg')}}" /></li>
-  @endif
-  <li>{{$product->description}}</li>
-  <li>{{$product->start_price}}</li>
-  <li ><a href="#/view-product/{{$product->id}}">Bid</a></li>
-  </ul>
-  @endforeach
- </div>
+     <div class="row">
+	@foreach($products as $product)
+	<div class="col-sm-4 col-lg-4 col-md-4">
+		<div class="thumbnail">
+			@if (File::exists(public_path() . '/product_images/product_'.$product->id.'_0.jpg'))
+			<img width="200" src="{{asset('product_images/product_'.$product->id.'_0.jpg')}}" />
+			@endif
+			<div class="caption">
+				<h4 class="pull-right">{{$product->start_price}}$</h4>
+				<h4><a href="#">{{$product->product_name}}</a>
+				</h4>
+				<p>{{$product->description}}</p>
+				<p><a class="view-product" href="#/view-product/{{$product->id}}">Bid</a></p>
+			</div>
+        </div>
+    </div>
+	@endforeach
+</div>
 <div id="root">
 
   <h1>Welcome!</h1>

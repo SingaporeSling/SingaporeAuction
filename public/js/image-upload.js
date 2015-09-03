@@ -98,7 +98,18 @@ function UploadFile(files, key) {
                 }
             }
         }
-
     }
-
 }
+
+ var slide = kendo.fx($("#slide-in-share")).slideIn("left"),
+        visible = true;
+
+    $("#slide-in-handle").click(function(e) {
+        if (visible) {
+            slide.reverse();
+        } else {
+            slide.play();
+        }
+        visible = !visible;
+        e.preventDefault();
+    });
