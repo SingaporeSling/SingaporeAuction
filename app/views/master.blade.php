@@ -2,14 +2,16 @@
 	<head>
 	
     <!-- Javascript -->
-  
+  <style type="text/css">
+#defaultCountdown { width: 300px; height: 45px; }
+</style>
 	<script type="text/javascript">
          var base_url = "{{route('home')}}";
         </script>
 		
     {{HTML::style('css/bootstrap.min.css')}}
 	{{HTML::style('styles/custom-styles.css')}}
-		
+    {{HTML::style('css/jquery.countdown.css')}}
 	</head>
 	<body>
 	<header>
@@ -69,13 +71,24 @@
 <!--footer-->
 <div id="footer" class="panel-footer">
  <div class="container">
-    <div></div>
-    <div></div>
-    <div data-ss-colspan="2">Something</div>
-    <div data-ss-colspan="2"></div>
-    <div data-ss-colspan="3"></div>
+	<div class="footer-boxes">
 	<div class="fb-like" data-href="https://www.facebook.com/SingaporeAuction" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div>
+	<div>
 	<div class="fb-share-button" data-href="http://singapore-sling.dev/" data-layout="button_count"></div>
+    </div> 
+	<div class="footer-boxes" data-ss-colspan="3">
+	<p>Copyright © Singapore team project</p> 
+	</div>
+	<div class="footer-boxes" data-ss-colspan="3">
+    <p>Powered by: Sammy.js and Twitter Bootstrap</p>
+	</div>
+    <div class="footer-boxes">
+	<img src="../../img/php-icon.png" height="70px">
+	</div>
+    <div class="footer-boxes">
+	<img src="../../img/laravel-icon.png" height="70px">
+	</div>
   </div>
 </div>
 <!--/footer-->
@@ -89,6 +102,7 @@
     {{ HTML::script('js/sammy.js') }}
     {{ HTML::script('js/routing/routes.js') }}
     {{ HTML::script('js/facebook-plugins.js') }}
+	{{ HTML::script('js/jquery.countdown.js') }}
     @yield('scripts')
 
     <script>
