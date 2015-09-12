@@ -100,7 +100,6 @@
     {{ HTML::script('js/kendo.all.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/sammy.js') }}
-    {{ HTML::script('js/someScript.js') }}
     {{ HTML::script('js/routing/routes.js') }}
     {{ HTML::script('js/facebook-plugins.js') }}
 	{{ HTML::script('js/jquery.countdown.js') }}
